@@ -1,5 +1,6 @@
 package br.com.store.lonelle.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Table(name = "tb_product")
 @Entity
+@AllArgsConstructor
 @Builder
 public class Product implements Serializable {
 

@@ -2,7 +2,10 @@ package br.com.store.lonelle.mapper;
 
 import br.com.store.lonelle.dto.ProductDTO;
 import br.com.store.lonelle.model.Product;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductMapper {
 
     public Product toProduct(ProductDTO productDTO){
@@ -21,7 +24,8 @@ public class ProductMapper {
 
     public ProductDTO toDTO(Product product){
 
-        var toDto =  ProductDTO.builder()
+        var toDto =  ProductDTO
+                .builder()
                 .name(product.getName())
                 .price(product.getPrice())
                 .description(product.getDescription())

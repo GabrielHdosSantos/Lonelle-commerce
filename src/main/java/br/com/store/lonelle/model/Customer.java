@@ -1,7 +1,9 @@
 package br.com.store.lonelle.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -14,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_customer")
+@SuperBuilder
 public class Customer extends User implements Serializable {
 
     @Id
@@ -31,6 +34,15 @@ public class Customer extends User implements Serializable {
 
     @OneToOne
     private Adress adress;
+
+    public Customer(Long id, String username, String password, String name, LocalDate birthday, String cpf, List<Order> orders, Adress adress) {
+        super(id, username, password);
+        this.name = name;
+        this.birthday = birthday;
+        this.cpf = cpf;
+        this.orders = orders;
+        this.adress = adress;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

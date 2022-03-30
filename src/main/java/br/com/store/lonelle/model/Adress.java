@@ -1,5 +1,7 @@
 package br.com.store.lonelle.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,15 +11,16 @@ import java.io.Serializable;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "tb_adress")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Adress implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Street;
+    private String street;
 
     private String cep;
 

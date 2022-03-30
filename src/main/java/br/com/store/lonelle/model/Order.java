@@ -1,6 +1,7 @@
 package br.com.store.lonelle.model;
 
-import br.com.store.lonelle.enums.OrderStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,8 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "tb_order")
 public class Order implements Serializable {
 
@@ -32,10 +35,5 @@ public class Order implements Serializable {
     private BigDecimal total;
 
     private LocalDate orderDate;
-
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
-
-
 
 }

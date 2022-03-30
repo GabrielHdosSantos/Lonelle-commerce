@@ -2,6 +2,7 @@ package br.com.store.lonelle.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Collection;
 @Entity
 @Data
 @NoArgsConstructor
+@SuperBuilder
 @Table(name = "tb_admin")
 public class Admin extends User implements Serializable {
 
