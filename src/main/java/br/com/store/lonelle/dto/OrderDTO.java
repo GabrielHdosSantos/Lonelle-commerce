@@ -18,8 +18,6 @@ public class OrderDTO {
 
     private List<Long> productsId;
 
-    private Long adressId;
-
     private BigDecimal total;
 
 

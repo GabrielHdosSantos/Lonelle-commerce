@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,7 +27,9 @@ public class OrderService {
 
     public Order createOrder(OrderDTO dto, Long idCustomer) {
 
+        List<Order> orders = new ArrayList<>();
         List<Product> products = new ArrayList<>();
+
         Customer customer = customerRepo.getById(idCustomer);
 
         dto.getProductsId().stream().forEach(id -> {
@@ -44,7 +47,25 @@ public class OrderService {
                 .orderDate(LocalDate.now())
                 .build();
 
+        customer.relations(orders);
+            customerRepo.save(customer);
+
         return orderRepo.save(newOrder);
     }
+
+    public List<Order> findOrderByCustomer_id(Long id) {
+
+        List<Order> orders = orderRepo.findByCustomerId(id)
+                .orElseThrow(() -> new IllegalStateException("Any order could be found"));
+
+        return orders;
+    }
+
+    public List<Order> findAllOrders() {
+        List<Order> orders = orderRepo.findAll();
+
+        return orders;
+    }
+
 
 }

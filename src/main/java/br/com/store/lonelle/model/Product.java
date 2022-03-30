@@ -30,6 +30,8 @@ public class Product implements Serializable {
     //todo Add MultiPartFile
     private String imageUrl;
 
+    private int quantity;
+
     @ManyToOne
     private Order order;
 

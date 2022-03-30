@@ -44,6 +44,12 @@ public class Customer extends User implements Serializable {
         this.adress = adress;
     }
 
+    public void relations(List<Order> orders){
+
+         setOrders(orders);
+
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

@@ -33,6 +33,8 @@ public class ProductDTO {
     @NotBlank(message = "The description cannot be blank")
     private String description;
 
+    private int quantity;
+
     @NotNull(message = "The imageUrl cannot be null")
     @NotBlank(message = "The imageUrl cannot be blank")
     private String imageUrl;
